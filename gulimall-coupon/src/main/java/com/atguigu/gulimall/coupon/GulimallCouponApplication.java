@@ -28,6 +28,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  *  1）、命名空间：配置隔离；
  *      默认：public(保留空间)；默认新增的所有配置都在public空间。
  *      1、开发，测试，生产：利用命名空间来做环境隔离。
+ *      新的知识
  *         注意：在bootstrap.properties；配置上，需要使用哪个命名空间下的配置，
  *         spring.cloud.nacos.config.namespace=9de62e44-cd2a-4a82-bf5c-95878bd5e871
  *      2、每一个微服务之间互相隔离配置，每一个微服务都创建自己的命名空间，只加载自己命名空间下的所有配置
