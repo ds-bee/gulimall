@@ -33,7 +33,7 @@ public class CouponController {
     @Autowired
     private CouponService couponService;
 
-
+    //这里是进行测试
     @Value("${coupon.user.name}")
     private String name;
     @Value("${coupon.user.age}")
