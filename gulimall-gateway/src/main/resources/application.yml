@@ -2,11 +2,12 @@ spring:
   cloud:
     gateway:
       routes:
+#        - 相关配置 去springcloud gateway网页中查看
 #        - id: test_route
 #          uri: https://www.baidu.com
 #          predicates:
 #            - Query=url,baidu
-#
+#         使用这个能直接访问到相关网页 http://localhost:88/?url=qq
 #        - id: qq_route
 #          uri: https://www.qq.com
 #          predicates:

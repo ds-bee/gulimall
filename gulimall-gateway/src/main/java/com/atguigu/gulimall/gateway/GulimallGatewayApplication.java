@@ -19,6 +19,7 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
  */
 
 @EnableDiscoveryClient
+//排除数据源的配置，以为定义网关不需要配置相关数据院，因为继承的父依赖中有mybatis的相关依赖，需要进行配置
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class GulimallGatewayApplication {
 
