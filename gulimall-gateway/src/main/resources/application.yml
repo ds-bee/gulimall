@@ -13,6 +13,7 @@ spring:
 #          predicates:
 #            - Query=url,qq
 
+#       这里要将大的放下面，因为这个文件有匹配顺序/api/product/**  /api/**
         - id: product_route
           uri: lb://gulimall-product
           predicates:
