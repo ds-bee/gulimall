@@ -20,14 +20,14 @@ public class OssController {
 
     @Autowired
     OSS ossClient;
-
+    //导入配置文件
     @Value("${spring.cloud.alicloud.oss.endpoint}")
     private String endpoint;
     @Value("${spring.cloud.alicloud.oss.bucket}")
     private String bucket;
 
     @Value("${spring.cloud.alicloud.access-key}")
-    private String accessId;
+    private String accessid;
 
 
     @RequestMapping("/oss/policy")
@@ -45,7 +45,7 @@ public class OssController {
 
         Map<String, String> respMap = null;
         try {
-            long expireTime = 30;
+            long expireTime = 60;
             long expireEndTime = System.currentTimeMillis() + expireTime * 1000;
             Date expiration = new Date(expireEndTime);
             PolicyConditions policyConds = new PolicyConditions();
@@ -58,7 +58,7 @@ public class OssController {
             String postSignature = ossClient.calculatePostSignature(postPolicy);
 
             respMap = new LinkedHashMap<String, String>();
-            respMap.put("accessid", accessId);
+            respMap.put("accessid", accessid);
             respMap.put("policy", encodedPolicy);
             respMap.put("signature", postSignature);
             respMap.put("dir", dir);
