@@ -28,6 +28,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  *  3）、给Bean加上逻辑删除注解@TableLogic
  *
  * 3、JSR303
+ *
  *   1）、给Bean添加校验注解:javax.validation.constraints，并定义自己的message提示
  *   2)、开启校验功能@Valid
  *      效果：校验错误以后会有默认的响应；
