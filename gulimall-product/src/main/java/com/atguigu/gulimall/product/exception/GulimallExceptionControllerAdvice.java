@@ -20,10 +20,11 @@ import java.util.Map;
 @Slf4j
 //@ResponseBody
 //@ControllerAdvice(basePackages = "com.atguigu.gulimall.product.controller")
+//
 @RestControllerAdvice(basePackages = "com.atguigu.gulimall.product.controller")
 public class GulimallExceptionControllerAdvice {
 
-
+    //MethodArgumentNotValidException 自定义异常可以定义准确一点
     @ExceptionHandler(value= MethodArgumentNotValidException.class)
     public R handleVaildException(MethodArgumentNotValidException e){
         log.error("数据校验出现问题{}，异常类型：{}",e.getMessage(),e.getClass());
@@ -36,7 +37,7 @@ public class GulimallExceptionControllerAdvice {
         return R.error(BizCodeEnume.VAILD_EXCEPTION.getCode(),BizCodeEnume.VAILD_EXCEPTION.getMsg()).put("data",errorMap);
     }
 
-    @ExceptionHandler(value = Throwable.class)
+    @ExceptionHandler(value = Throwable.class) //处理任意类型的异常
     public R handleException(Throwable throwable){
 
         log.error("错误：",throwable);
