@@ -40,6 +40,7 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
     }
 
     @Override
+    //前端匹配传参，都忘了
     public PageUtils queryPage(Map<String, Object> params, Long catelogId) {
         String key = (String) params.get("key");
         //select * from pms_attr_group where catelog_id=? and (attr_group_id=key or attr_group_name like %key%)
