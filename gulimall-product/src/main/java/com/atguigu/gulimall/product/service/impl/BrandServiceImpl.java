@@ -43,6 +43,7 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
 
     @Transactional
     @Override
+
     public void updateDetail(BrandEntity brand) {
         //保证冗余字段的数据一致
         this.updateById(brand);
