@@ -2,6 +2,7 @@ package com.atguigu.gulimall.product.vo;
 
 import lombok.Data;
 
+//使用lombok插件的Data注解快速生成getset等方法
 @Data
 public class AttrRespVo extends AttrVo {
     /**

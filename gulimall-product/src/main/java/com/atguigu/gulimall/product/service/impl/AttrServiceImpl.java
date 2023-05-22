@@ -67,6 +67,7 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
     public void saveAttr(AttrVo attr) {
         AttrEntity attrEntity = new AttrEntity();
 //        attrEntity.setAttrName(attr.getAttrName());
+        //提供的工具类BeanUtils，复制属性
         BeanUtils.copyProperties(attr,attrEntity);
         //1、保存基本数据
         this.save(attrEntity);
@@ -104,6 +105,7 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
 
         PageUtils pageUtils = new PageUtils(page);
         List<AttrEntity> records = page.getRecords();
+        //这里有stream流和复制字段的常用操作
         List<AttrRespVo> respVos = records.stream().map((attrEntity) -> {
             AttrRespVo attrRespVo = new AttrRespVo();
             BeanUtils.copyProperties(attrEntity, attrRespVo);
@@ -259,6 +261,7 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
                 w.eq("attr_id",key).or().like("attr_name",key);
             });
         }
+        //new Query<AttrEntity>().getPage(params)自己写的类型 能够获取分页参数 再传入分页查询的类型
         IPage<AttrEntity> page = this.page(new Query<AttrEntity>().getPage(params), wrapper);
 
         PageUtils pageUtils = new PageUtils(page);
