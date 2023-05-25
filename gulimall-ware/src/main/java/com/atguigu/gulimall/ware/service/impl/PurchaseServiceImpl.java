@@ -103,6 +103,7 @@ public class PurchaseServiceImpl extends ServiceImpl<PurchaseDao, PurchaseEntity
     @Override
     public void received(List<Long> ids) {
         //1、确认当前采购单是新建或者已分配状态
+
         List<PurchaseEntity> collect = ids.stream().map(id -> {
             PurchaseEntity byId = this.getById(id);
             return byId;
